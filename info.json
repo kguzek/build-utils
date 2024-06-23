@@ -1,0 +1,10 @@
+{
+    "name": "build-utils",
+    "version": "0.1.0",
+    "title": "Build Utils",
+    "author": "Konrad Guzek",
+    "factorio_version": "1.1",
+    "dependencies": ["base >= 1.1"],
+    "description": "This mod adds several Quality of Life additions for users who have the vanilla setting 'Pick ghost items if no items are available' enabled."
+}
+
