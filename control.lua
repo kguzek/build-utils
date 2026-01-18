@@ -24,12 +24,17 @@ script.on_event(defines.events.on_player_main_inventory_changed,
 
 script.on_event(defines.events.on_built_entity,
   function(event)
-    if not setting_enabled(event, "auto-select-ghost") or event.item == nil then
+    if event.consumed_items == nil or #event.consumed_items == 0 then
+      return
+    end
+    if not setting_enabled(event, "auto-select-ghost") then
       return
     end
     local player = game.get_player(event.player_index)
+
     if player.is_cursor_empty() then
-      player.cursor_ghost = event.item
+      local item_stack = event.consumed_items[1]
+      player.cursor_ghost = item_stack
     end
   end
 )
