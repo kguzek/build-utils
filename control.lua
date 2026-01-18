@@ -24,7 +24,7 @@ script.on_event(defines.events.on_player_main_inventory_changed,
 
 script.on_event(defines.events.on_built_entity,
   function(event)
-    if event.consumed_items == nil or #event.consumed_items == 0 then
+    if event.consumed_items == nil or not event.consumed_items.valid or #event.consumed_items == 0 then
       return
     end
     if not setting_enabled(event, "auto-select-ghost") then
