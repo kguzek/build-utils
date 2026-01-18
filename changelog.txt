@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 19.01.2026
+
+  Bugfixes:
+    - resolved crash when building over water
+      (https://mods.factorio.com/mod/build-utils/discussion/696d5970623850a34115c64c)
+  Debug:
+    - update installer output archive filename
+---------------------------------------------------------------------------------------------------
 Version: 1.0.1
 Date: 18.01.2026
 
