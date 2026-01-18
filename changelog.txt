@@ -1,0 +1,29 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 18.01.2026
+
+  Info:
+    - updated to Factorio 2.0
+    - bumped dependency version
+  Graphics:
+    - added mod thumbnail
+  Bugfixes:
+    - 2.0 API compatibility for auto-select-ghost
+  Gui:
+    - reworded setting descriptions
+  Debug:
+    - added installation script
+  Other:
+    - added README
+    - added MIT license
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 23.06.2024
+
+  Info:
+    - initial release
+  Features:
+    - added auto-swap-ghost setting
+    - added auto-select-ghost setting
+  Changes:
+    - made auto-select-ghost off by default
