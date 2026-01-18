@@ -7,13 +7,16 @@
     exit 1
   }
 
-  TEMPORARY_FILENAME='build-utils.zip'
 
+  VERSION="$(jq -r '.version' info.json)"
+  ARCHIVE_FILENAME="build-utils_$VERSION.zip"
   REPO_NAME=$(basename "$(pwd)")
+  rm -rf build-utils_*.zip
   cd ..
-  zip -r "$TEMPORARY_FILENAME" "$REPO_NAME" -x '**/.git/*' -x '**/.gitignore' -x '**/*.sh' -x '**/.env*'
-  echo "zipped to $TEMPORARY_FILENAME!"
+  zip -r "$ARCHIVE_FILENAME" "$REPO_NAME" -x '**/.*' -x '**/*.sh' -x '**/*.zip'
+  mv "$ARCHIVE_FILENAME" "$REPO_NAME/"
   cd "$REPO_NAME"
+  echo "zipped to $ARCHIVE_FILENAME!"
 
   if [ -f .env ] && command -v source >/dev/null; then
     source .env
@@ -27,8 +30,7 @@
     error "FACTORIO_PATH directory does not exist: $FACTORIO_PATH"
   fi
 
-  VERSION="$(jq -r '.version' info.json)"
-  OUTPUT_PATH="$FACTORIO_PATH/mods/build-utils_$VERSION.zip"
-  echo "moving $TEMPORARY_FILENAME to $OUTPUT_PATH ..."
-  mv "../$TEMPORARY_FILENAME" "$OUTPUT_PATH"
+  OUTPUT_PATH="$FACTORIO_PATH/mods/"
+  echo "moving $ARCHIVE_FILENAME to $OUTPUT_PATH ..."
+  mv "$ARCHIVE_FILENAME" "$OUTPUT_PATH"
   echo "done!"
